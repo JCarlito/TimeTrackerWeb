@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- THE ADMIN KEY IS 1234 -->
+<html>
+    <head>
+        <title>Admin Register</title>
+        <style>
+            /* CSS styles for the page layout */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .container {
+                max-width: 400px;
+                margin: 0 auto;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            h2 {
+                margin-top: 0;
+                color: #333;
+            }
+
+            form {
+                text-align: left;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                width: 94%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                padding: 15px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+
+            button {
+                background-color: #2196F3;
+                color: white;
+                padding: 15px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #1976D2;
+            }
+
+            /* CSS styles for the return button */
+            .return-button {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background-color: #4CAF50;
+                color: white;
+                padding: 8px 16px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 4px;
+            }
+
+            .return-button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Return Button -->
+        <a class="return-button" href="sign_in.html">Return</a>
+
+        <!-- THE ADMIN KEY IS 1234 -->
+        <div class="container">
+            <h2>Admin Register</h2>
+            <form action="php_scripts/admin_register_process.php" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <label for="admin_key">Admin Key:</label>
+                <input type="password" id="admin_key" name="admin_key" required>
+                <input type="submit" value="Register">
+            </form>
+            <div class="button-container">
+                <button onclick="location.href = 'admin_login.html'">Login</button>
+            </div>
+            <script>
+                window.onload = function () {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const error = urlParams.get('error');
+                    if (error) {
+                        alert(decodeURIComponent(error));
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
